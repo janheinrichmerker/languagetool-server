@@ -32,6 +32,11 @@ All required dependencies will automatically be installed for you.
 
 > TODO: Build instructions
 
+```shell
+docker build -f ngrams-download.dockerfile . -t ngrams-download
+docker run -v ./example/ngrams-urls:/ngrams-urls -v ./example/ngrams-zips:/ngrams-zips -v ./example/ngrams:/ngrams ngrams-download
+```
+
 Once ready, [create a pull request](https://github.com/heinrichreimer/languagetool-server/compare) with your changes. We're happy to any contribution!
 
 ## Support
