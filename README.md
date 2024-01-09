@@ -19,6 +19,10 @@ An opinionated [LanguageTool](https://languagetool.org/) server customized for s
 
 > TODO: Usage for end users (e.g., browser extensions and configuration)
 
+```shell
+curl --data "language=en-US&text=a simple test" http://localhost:8010/v2/check
+```
+
 ## Deployment
 
 This LanguageTool server can be deployed on a Kubernetes cluster as a Helm chart.
@@ -32,9 +36,20 @@ All required dependencies will automatically be installed for you.
 
 > TODO: Build instructions
 
+### n-grams download
+
+<https://languagetool.org/download/ngram-data/>
+
 ```shell
 docker build -f ngrams-download.dockerfile . -t ngrams-download
 docker run -v ./example/ngrams-urls:/ngrams-urls -v ./example/ngrams-zips:/ngrams-zips -v ./example/ngrams:/ngrams ngrams-download
+```
+
+### LanguageTool server
+
+```shell
+docker build -f languagetool-server.dockerfile . -t languagetool-server
+docker run -v ./example/ngrams:/ngrams -p 8010:8010 languagetool-server
 ```
 
 Once ready, [create a pull request](https://github.com/heinrichreimer/languagetool-server/compare) with your changes. We're happy to any contribution!
