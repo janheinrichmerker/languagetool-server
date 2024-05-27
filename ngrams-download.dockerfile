@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20
 RUN apk add parallel wget
 RUN mkdir ~/.parallel && touch ~/.parallel/will-cite
 VOLUME [ "/ngrams-urls", "/ngrams-zips", "/ngrams" ]
