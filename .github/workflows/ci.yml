@@ -19,7 +19,7 @@ jobs:
     - name: "🧰 Set up Docker Buildx"
       uses: docker/setup-buildx-action@v3
     - name: "🏗️ Build Docker image"
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: languagetool-server.dockerfile
@@ -35,7 +35,7 @@ jobs:
     - name: "🧰 Set up Docker Buildx"
       uses: docker/setup-buildx-action@v3
     - name: "🏗️ Build Docker image"
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ngrams-download.dockerfile
@@ -70,7 +70,7 @@ jobs:
         images: |
           ghcr.io/${{ github.repository }}
     - name: "🚀 Build and push image"
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: languagetool-server.dockerfile
@@ -107,7 +107,7 @@ jobs:
         images: |
           ghcr.io/${{ github.repository }}/ngrams-download
     - name: "🚀 Build and push image"
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ngrams-download.dockerfile
